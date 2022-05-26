@@ -154,7 +154,7 @@ class SubtractionActivity : AppCompatActivity() {
                 buttonSolutionTwo.isEnabled = false
                 buttonSolutionThree.isEnabled = false
 
-                db.addHighScore(scoreValue.text.toString().toInt(), lives)
+                db.addHighScore(scoreValue.text.toString().toInt())
 
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("Gamemode", "Subtraction")

@@ -13,7 +13,6 @@ class DBHelper(context: Context?) :
         val createTableSql = ("CREATE TABLE " + TABLE_HIGHSCORE + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_SCORE + " INTEGER,"
-                + COLUMN_LIVES + " INTEGER,"
                 + COLUMN_DATE + " INTEGER" //"YYYY-MM-DD HH:MM:SS.SSS"
                 + ");")
         db.execSQL(createTableSql)
@@ -24,14 +23,13 @@ class DBHelper(context: Context?) :
         onCreate(db)
     }
 
-    fun addHighScore(highscore: Int, lives: Int) {
+    fun addHighScore(highscore: Int) {
         /*
         gets highscore (as int) and lives (as int) and stores them with the current time in the DB
          */
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_SCORE, highscore)
-        values.put(COLUMN_LIVES, lives)
         values.put(COLUMN_DATE, System.currentTimeMillis())
 
         db.insert(TABLE_HIGHSCORE, null, values)
@@ -44,7 +42,7 @@ class DBHelper(context: Context?) :
          */
         val scoresList: ArrayList<HashMap<String, Int>> = ArrayList()
         val selectQuery =
-            "SELECT $COLUMN_ID, $COLUMN_SCORE, $COLUMN_LIVES, $COLUMN_DATE FROM $TABLE_HIGHSCORE"
+            "SELECT $COLUMN_ID, $COLUMN_SCORE, $COLUMN_DATE FROM $TABLE_HIGHSCORE"
         val db = this.readableDatabase
         val cursor: Cursor = db.rawQuery(selectQuery, null)
 
@@ -54,11 +52,9 @@ class DBHelper(context: Context?) :
                 val hashmap: HashMap<String, Int> = HashMap()
                 val id: Int = cursor.getInt(0)
                 val score: Int = cursor.getInt(1)
-                val lives: Int = cursor.getInt(2)
-                val date: Int = cursor.getInt(3)
+                val date: Int = cursor.getInt(2)
                 hashmap["score"] = score
                 hashmap["id"] = id
-                hashmap["lives"] = lives
                 hashmap["date"] = date
                 scoresList.add(hashmap)
             } while (cursor.moveToNext())
@@ -70,12 +66,11 @@ class DBHelper(context: Context?) :
     }
 
     companion object {
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
         private const val DATABASE_NAME = "highscore.db"
         private const val TABLE_HIGHSCORE = "highscore"
         private const val COLUMN_ID = "id"
         private const val COLUMN_SCORE = "score"
-        private const val COLUMN_LIVES = "lives"
         private const val COLUMN_DATE = "date"
     }
 }
