@@ -68,7 +68,7 @@ class SubtractionActivity : AppCompatActivity() {
 
         buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
         buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
-        
+
         while(buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(buttonSolutionThree.text) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
