@@ -16,7 +16,7 @@ import kotlin.random.Random
 
 
 class SubtractionActivity : AppCompatActivity() {
-    private var difficultyLevel = 3  //get difficulty level from main activity as intent ?!
+    private var difficultyLevel = 1  //get difficulty level from main activity as intent ?!
     private var correctButton = -1
     private var lives = 3
     private var timer = 0L
@@ -64,19 +64,15 @@ class SubtractionActivity : AppCompatActivity() {
             buttonSolutionThree
         ) //create array of solutionButtons
         correctButton = numGenerator.nextInt().mod(3) //get a random Button and set it as the correctButton
-        println(correctButton)
         buttonArray[correctButton].text = (numberOne.minus(numberTwo)).toString() //set the right value into the button
 
-        buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(
-            numGenerator.nextInt(
-                10f.pow(difficultyLevel).roundToInt()
-            )
-        )).toString()
-        buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(
-            numGenerator.nextInt(
-                10f.pow(difficultyLevel).roundToInt()
-            )
-        )).toString()
+        buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+        buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+        
+        while(buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(buttonSolutionThree.text) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)) {
+            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+        }
     }
 
     private fun initViews() {
