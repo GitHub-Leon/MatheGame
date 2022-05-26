@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.techmania.mathe_game.helper.DBHelper
+import com.techmania.mathe_game.helpers.DBHelper
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.random.Random

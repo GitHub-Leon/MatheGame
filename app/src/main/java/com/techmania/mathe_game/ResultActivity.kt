@@ -6,7 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.techmania.mathe_game.helper.Presets
+import com.techmania.mathe_game.helpers.Presets
+import com.techmania.mathe_game.views.KonfettiView
 
 
 class ResultActivity : AppCompatActivity() {

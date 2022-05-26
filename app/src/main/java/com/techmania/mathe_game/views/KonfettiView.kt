@@ -1,4 +1,4 @@
-package com.techmania.mathe_game
+package com.techmania.mathe_game.views
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import com.techmania.mathe_game.draw
 import com.techmania.mathe_game.listeners.OnParticleSystemUpdateListener
 import nl.dionsegijn.konfetti.core.Particle
 import nl.dionsegijn.konfetti.core.Party

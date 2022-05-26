@@ -1,4 +1,4 @@
-package com.techmania.mathe_game.helper
+package com.techmania.mathe_game.helpers
 
 import nl.dionsegijn.konfetti.core.Angle
 import nl.dionsegijn.konfetti.core.Party

@@ -1,4 +1,4 @@
-package com.techmania.mathe_game.helper
+package com.techmania.mathe_game.helpers
 
 import android.content.ContentValues
 import android.content.Context

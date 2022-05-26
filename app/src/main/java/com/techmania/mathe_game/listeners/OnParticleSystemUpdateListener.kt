@@ -1,6 +1,6 @@
 package com.techmania.mathe_game.listeners
 
-import com.techmania.mathe_game.KonfettiView
+import com.techmania.mathe_game.views.KonfettiView
 import nl.dionsegijn.konfetti.core.Party
 
 interface OnParticleSystemUpdateListener {

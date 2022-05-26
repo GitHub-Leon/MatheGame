@@ -10,7 +10,7 @@
     android:theme="@style/Theme.Konfetti"
     tools:context=".ResultActivity">
 
-    <com.techmania.mathe_game.KonfettiView
+    <com.techmania.mathe_game.views.KonfettiView
         android:id="@+id/konfettiView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
