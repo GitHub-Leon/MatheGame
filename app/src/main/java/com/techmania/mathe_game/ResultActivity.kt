@@ -1,6 +1,7 @@
 package com.techmania.mathe_game
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -25,7 +26,7 @@ class ResultActivity : AppCompatActivity() {
 
         viewKonfetti = findViewById(R.id.konfettiView)
         viewKonfetti.start(Presets.festive())
-
+        playCheer()
     }
 
     private fun initListeners() {
@@ -54,4 +55,10 @@ class ResultActivity : AppCompatActivity() {
         score = findViewById(R.id.textScoreValue)
         score.text = intent.getStringExtra("Score")
     }
+
+    private fun playCheer() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
+        mediaPlayer!!.start()
+    }
+
 }
