@@ -36,7 +36,7 @@ class SubtractionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_subtraktion)
+        setContentView(R.layout.activity_subtraction)
 
         db = DBHelper(applicationContext)
         timer = 61000  //TODO: GET VALUE FROM INTENT VIA SETTINGS
