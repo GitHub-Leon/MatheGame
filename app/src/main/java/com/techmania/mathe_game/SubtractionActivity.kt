@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.techmania.mathe_game.helpers.DBHelper
 import kotlin.math.pow
 import kotlin.math.roundToInt
@@ -45,6 +48,7 @@ class SubtractionActivity : AppCompatActivity() {
         initViews()
         initListeners()
         generateQuestion()
+        hideSystemBars()
     }
 
     private fun generateQuestion() {
@@ -73,6 +77,16 @@ class SubtractionActivity : AppCompatActivity() {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
         }
+    }
+
+    private fun hideSystemBars() {
+        val windowInsetsController =
+            ViewCompat.getWindowInsetsController(window.decorView) ?: return
+        // Configure the behavior of the hidden system bars
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        // Hide both the status bar and the navigation bar
+        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
     }
 
     private fun initViews() {

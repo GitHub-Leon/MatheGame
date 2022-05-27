@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.techmania.mathe_game.helpers.Presets
 import com.techmania.mathe_game.views.KonfettiView
 
@@ -27,6 +30,17 @@ class ResultActivity : AppCompatActivity() {
         viewKonfetti = findViewById(R.id.konfettiView)
         viewKonfetti.start(Presets.rain())
         playCheer()
+        hideSystemBars()
+    }
+
+    private fun hideSystemBars() {
+        val windowInsetsController =
+            ViewCompat.getWindowInsetsController(window.decorView) ?: return
+        // Configure the behavior of the hidden system bars
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        // Hide both the status bar and the navigation bar
+        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
     }
 
     private fun initListeners() {

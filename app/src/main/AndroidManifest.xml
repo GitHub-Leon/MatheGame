@@ -16,7 +16,8 @@
             android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".ResultActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".ScoreboardActivity"
             android:exported="false"
