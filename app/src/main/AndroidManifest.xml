@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GamePage">
         <activity
+            android:name=".Multiplication"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity
             android:name=".ResultActivity"
             android:exported="false" />
         <activity
@@ -21,12 +26,12 @@
             android:name=".AdditionActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.GamePage" />
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".SubtractionActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.GamePage" />
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

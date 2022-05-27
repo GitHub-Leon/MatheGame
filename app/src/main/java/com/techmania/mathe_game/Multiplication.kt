@@ -1,6 +1,7 @@
 package com.techmania.mathe_game
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -8,13 +9,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.techmania.mathe_game.helpers.DBHelper
 import java.util.*
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
-class AdditionActivity : AppCompatActivity() {
+class Multiplication : AppCompatActivity() {
     private var difficultyLevel = 1  //get difficulty level from main activity as intent ?!
     private var correctButton = -1
     private var lives = 3
@@ -33,7 +33,7 @@ class AdditionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addition)
+        setContentView(R.layout.activity_multiplication)
 
         db = DBHelper(applicationContext)
         timer = 61000
@@ -45,10 +45,10 @@ class AdditionActivity : AppCompatActivity() {
 
     fun generateQuestion() {
         val numGenerator: Random = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
+        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
-        questionField.text = "$numberOne+$numberTwo"
+        questionField.text = "$numberOne*$numberTwo"
 
         val buttonArray = arrayOf(
             buttonSolutionOne,
@@ -56,29 +56,20 @@ class AdditionActivity : AppCompatActivity() {
             buttonSolutionThree
         )
 
-        correctButton = numGenerator.nextInt().mod(3)
-        buttonArray[correctButton].text = numberOne.plus(numberTwo).toString()
+        correctButton = numGenerator.nextInt().mod(3)//random Button = correct
+        buttonArray[correctButton].text = numberOne.times(numberTwo).toString()//richtige Ergebnis in den Button
 
         buttonArray[(correctButton.plus(1).mod(3))].text =
-            (numberOne.plus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            (numberOne.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
-            (numberOne.plus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            (numberTwo.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
                 buttonSolutionThree.text
             ) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)
         ) {
-            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.plus(
-                numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
-            )).toString()
-            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.plus(
-                numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
-            )).toString()
-
+            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
         }
     }
 
