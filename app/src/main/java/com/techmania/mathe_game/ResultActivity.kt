@@ -25,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
         initListeners()
 
         viewKonfetti = findViewById(R.id.konfettiView)
-        viewKonfetti.start(Presets.festive())
+        viewKonfetti.start(Presets.rain())
         playCheer()
     }
 
