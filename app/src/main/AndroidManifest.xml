@@ -10,14 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GamePage">
         <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MatheGame"/>
+        <activity
             android:name=".Multiplication"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ScoreboardActivity"
             android:exported="false"
@@ -34,9 +38,9 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true"
-            android:theme="@style/Theme.MatheGame">
+            android:theme="@style/Theme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
