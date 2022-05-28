@@ -1,14 +1,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="General Settings">
+    <PreferenceCategory app:title="@string/generalSettings">
 
         <DropDownPreference
             android:id="@+id/languagePreference"
             app:entries="@array/language_entries"
             app:entryValues="@array/language_values"
             app:key="language"
-            app:title="Language"
+            app:title="@string/language"
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
@@ -16,30 +16,30 @@
             app:entries="@array/theme_entries"
             app:entryValues="@array/theme_values"
             app:key="theme"
-            app:title="Theme"
+            app:title="@string/theme"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Audio">
+    <PreferenceCategory app:title="@string/audio">
 
         <SwitchPreferenceCompat
             android:id="@+id/musicSwitchPreference"
             app:defaultValue="true"
             app:key="music"
-            app:title="Music" />
+            app:title="@string/music" />
 
         <SwitchPreferenceCompat
             android:id="@+id/soundSwitchPreference"
             app:defaultValue="true"
             app:key="sound"
-            app:title="Sound" />
+            app:title="@string/sound" />
 
         <SwitchPreferenceCompat
             android:id="@+id/vibrationSwitchPreference"
             app:defaultValue="true"
             app:key="vibration"
-            app:title="Vibration" />
+            app:title="@string/vibration" />
 
     </PreferenceCategory>
 
