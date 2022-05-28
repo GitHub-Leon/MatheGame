@@ -19,5 +19,6 @@
     <string name="multiplication">Multiplication</string>
     <string name="scoreboard">Scoreboard</string>
     <string name="scoreGamemode">Score</string>
+    <string name="mathforkids">Math for Kids</string>
     <string name="time">Time</string>
 </resources>

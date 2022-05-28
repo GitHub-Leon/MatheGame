@@ -1,0 +1,22 @@
+<resources>
+    <!-- Theme Preference -->
+    <string-array name="theme_entries">
+        <item>Standard</item>
+        <item>Sommer</item>
+        <item>Herbst</item>
+    </string-array>
+    <string-array name="theme_values">
+        <item>Sommer</item>
+        <item>Herbst</item>
+    </string-array>
+
+    <!-- Language Preference -->
+    <string-array name="language_entries">
+        <item>English</item>
+        <item>Deutsch</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>en</item>
+        <item>de</item>
+    </string-array>
+</resources>
