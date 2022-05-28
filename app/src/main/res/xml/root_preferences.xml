@@ -1,0 +1,46 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="General Settings">
+
+        <DropDownPreference
+            android:id="@+id/languagePreference"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:key="language"
+            app:title="Language"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:id="@+id/themePreference"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:key="theme"
+            app:title="Theme"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Audio">
+
+        <SwitchPreferenceCompat
+            android:id="@+id/musicSwitchPreference"
+            app:defaultValue="true"
+            app:key="music"
+            app:title="Music" />
+
+        <SwitchPreferenceCompat
+            android:id="@+id/soundSwitchPreference"
+            app:defaultValue="true"
+            app:key="sound"
+            app:title="Sound" />
+
+        <SwitchPreferenceCompat
+            android:id="@+id/vibrationSwitchPreference"
+            app:defaultValue="true"
+            app:key="vibration"
+            app:title="Vibration" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

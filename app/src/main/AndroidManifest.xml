@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GamePage">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight"/>
+        <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.MatheGame"/>
+            android:theme="@style/Theme.MatheGame" />
         <activity
             android:name=".Multiplication"
             android:exported="false"
