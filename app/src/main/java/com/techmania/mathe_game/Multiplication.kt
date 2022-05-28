@@ -1,7 +1,6 @@
 package com.techmania.mathe_game
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -9,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -62,19 +62,36 @@ class Multiplication : AppCompatActivity() {
         )
 
         correctButton = numGenerator.nextInt().mod(3)//random Button = correct
-        buttonArray[correctButton].text = numberOne.times(numberTwo).toString()//richtige Ergebnis in den Button
+        buttonArray[correctButton].text =
+            numberOne.times(numberTwo).toString()//richtige Ergebnis in den Button
 
         buttonArray[(correctButton.plus(1).mod(3))].text =
-            (numberOne.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            (numberOne.times(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
-            (numberTwo.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            (numberTwo.times(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
                 buttonSolutionThree.text
             ) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)
         ) {
-            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
-            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
+            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
         }
     }
 
