@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techmania.mathe_game">
+    
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,10 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight"/>
+        <activity
+            android:name=".Division"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"

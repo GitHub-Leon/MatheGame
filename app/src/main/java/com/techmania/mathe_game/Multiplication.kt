@@ -1,8 +1,12 @@
 package com.techmania.mathe_game
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.*
+import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -188,6 +192,16 @@ class Multiplication : AppCompatActivity() {
                 intent.putExtra("Score", scoreValue.text)
                 startActivity(intent) //result activity will open
             }
+        }
+        vibratePhone()
+    }
+
+    private fun vibratePhone() {
+        val vibrator = applicationContext?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(200)
         }
     }
 

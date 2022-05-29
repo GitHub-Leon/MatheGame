@@ -8,6 +8,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:foregroundTintMode="screen"
+        android:popupElevation="20dp"
+        android:scrollbarSize="20dp"
+        android:soundEffectsEnabled="true"
+
+        android:spinnerMode="dialog"
+        android:textAlignment="center" />
+
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="250dp"
@@ -15,6 +27,8 @@
         android:layout_marginTop="75dp"
         android:text="@string/addition"
         android:textSize="20sp" />
+        android:fontFamily="casual"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonSub"
@@ -23,6 +37,8 @@
         android:layout_marginTop="20dp"
         android:text="@string/subtraction"
         android:textSize="20sp" />
+        android:fontFamily="casual"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonMulti"
@@ -31,12 +47,17 @@
         android:layout_marginTop="20dp"
         android:text="@string/multiplication"
         android:textSize="20sp" />
+        android:fontFamily="casual"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/buttonScoreboard"
+        android:id="@+id/buttonDivision"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:layout_marginTop="200dp"
         android:text="@string/scoreboard"
         android:textSize="20sp" />
+        android:layout_marginTop="20dp"
+        android:fontFamily="casual"
+        android:textStyle="bold" />
+
 </LinearLayout>

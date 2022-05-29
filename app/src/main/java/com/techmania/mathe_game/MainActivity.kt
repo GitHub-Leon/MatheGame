@@ -2,7 +2,10 @@ package com.techmania.mathe_game
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log.d
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,12 +15,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addition: Button
     private lateinit var subtraction: Button
     private lateinit var multi: Button
-    private lateinit var scoreboard: Button
 
+
+    lateinit var spinner: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        spinner = findViewById(R.id.spinner)
+        var arrayAdapter = ArrayAdapter.createFromResource(
+            applicationContext,R.array.difficulties, android.R.layout.simple_spinner_item
+        )
+        //dropdown definieren
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        //spinner befüllen
+        spinner.adapter = arrayAdapter
 
         initViews()
         initListeners()
@@ -28,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         addition = findViewById(R.id.buttonAdd)
         subtraction = findViewById(R.id.buttonSub)
         multi = findViewById(R.id.buttonMulti)
-        scoreboard = findViewById(R.id.buttonScoreboard)
+
     }
 
     private fun initListeners() {
@@ -47,12 +60,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent) //second activity will open
         }
 
-        scoreboard.setOnClickListener {
+       /* start.setOnClickListener {
             //intent to open another activity
             val intent = Intent(this@MainActivity, ScoreboardActivity::class.java)
             startActivity(intent) //second activity will open
-        }
-        multi.setOnClickListener {
+        }*/
+        multi.setOnClickListener{
             val intent = Intent(this@MainActivity, Multiplication::class.java)
             startActivity(intent)
         }
