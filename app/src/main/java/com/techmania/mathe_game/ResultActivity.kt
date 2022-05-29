@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 import com.techmania.mathe_game.helpers.Presets
 import com.techmania.mathe_game.views.KonfettiView
 
@@ -30,7 +31,7 @@ class ResultActivity : AppCompatActivity() {
 
         viewKonfetti = findViewById(R.id.konfettiView)
         viewKonfetti.start(Presets.rain())
-        playCheer()
+        playSound(R.raw.cheer)
         hideSystemBars()
     }
 
@@ -56,16 +57,18 @@ class ResultActivity : AppCompatActivity() {
         Init views
          */
         exitButton.setOnClickListener {
+            playSound(R.raw.blob)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         playAgainButton.setOnClickListener {
+            playSound(R.raw.blob)
             lateinit var intentNew: Intent
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)
                 "Multiplication" -> intentNew = Intent(this, MultiplicationActivity::class.java)
-                //TODO: ADD OTHER GAMEMODES
+                "Division" -> intentNew = Intent(this, DivisionActivity::class.java)
             }
 
             startActivity(intentNew)
@@ -79,9 +82,10 @@ class ResultActivity : AppCompatActivity() {
         score.text = intent.getStringExtra("Score")
     }
 
-    private fun playCheer() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
-        mediaPlayer.start()
+    private fun playSound(resid:Int) {
+        if (PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+            mediaPlayer = MediaPlayer.create(this, resid)
+            mediaPlayer.start()
+        }
     }
-
 }

@@ -1,6 +1,7 @@
 package com.techmania.mathe_game
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 
 class MainActivity : AppCompatActivity() {
     private lateinit var addition: Button
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var settings : ImageView
     private lateinit var spinner: Spinner
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListeners() {
         addition.setOnClickListener {
+            playSound(R.raw.blob)
             //intent to open another activity
             val intent = Intent(this@MainActivity, AdditionActivity::class.java)
             startActivity(intent) //second activity will open
@@ -62,22 +66,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         subtraction.setOnClickListener {
+            playSound(R.raw.blob)
             //intent to open another activity
             val intent = Intent(this@MainActivity, SubtractionActivity::class.java)
             startActivity(intent) //second activity will open
         }
 
         multi.setOnClickListener{
+            playSound(R.raw.blob)
             val intent = Intent(this@MainActivity, MultiplicationActivity::class.java)
             startActivity(intent)
         }
 
         division.setOnClickListener {
+            playSound(R.raw.blob)
             val intent = Intent(this@MainActivity, DivisionActivity::class.java)
             startActivity(intent)
         }
 
         settings.setOnClickListener {
+            playSound(R.raw.blob)
             val intent = Intent(this@MainActivity, SettingsActivity::class.java)
             startActivity(intent)
         }
@@ -91,5 +99,12 @@ class MainActivity : AppCompatActivity() {
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         // Hide both the status bar and the navigation bar
         windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
+    }
+
+    private fun playSound(resid:Int) {
+        if (PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+            mediaPlayer = MediaPlayer.create(this, resid)
+            mediaPlayer.start()
+        }
     }
 }

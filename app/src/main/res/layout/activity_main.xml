@@ -8,7 +8,8 @@
     android:background="@drawable/first_new"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:theme="@style/Theme.GamePage">
 
     <ImageView
         android:id="@+id/imageSettings"
