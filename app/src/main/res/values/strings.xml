@@ -6,6 +6,7 @@
     <string name="_60">60</string>
     <string name="play_again">Play Again</string>
     <string name="exit">Exit</string>
+    <string name="todo">TODO</string>
 
     <string name="language">Language</string>
     <string name="theme">Theme</string>
@@ -22,7 +23,7 @@
     <string name="mathforkids">Math for Kids</string>
     <string name="time">Time</string>
   
-    <string name="app_name1">Spinner</string>
+    <string name="app_name1" translatable="false">Spinner</string>
   
     <string-array name="difficulties">
         <item>easy</item>
