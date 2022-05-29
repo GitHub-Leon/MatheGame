@@ -16,7 +16,6 @@
         android:popupElevation="20dp"
         android:scrollbarSize="20dp"
         android:soundEffectsEnabled="true"
-
         android:spinnerMode="dialog"
         android:textAlignment="center" />
 
@@ -26,7 +25,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="75dp"
         android:text="@string/addition"
-        android:textSize="20sp" />
+        android:textSize="20sp"
         android:fontFamily="casual"
         android:textStyle="bold" />
 
@@ -36,7 +35,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
         android:text="@string/subtraction"
-        android:textSize="20sp" />
+        android:textSize="20sp"
         android:fontFamily="casual"
         android:textStyle="bold" />
 
@@ -46,7 +45,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
         android:text="@string/multiplication"
-        android:textSize="20sp" />
+        android:textSize="20sp"
         android:fontFamily="casual"
         android:textStyle="bold" />
 
@@ -54,8 +53,8 @@
         android:id="@+id/buttonDivision"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:text="@string/scoreboard"
-        android:textSize="20sp" />
+        android:text="@string/division"
+        android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:fontFamily="casual"
         android:textStyle="bold" />
