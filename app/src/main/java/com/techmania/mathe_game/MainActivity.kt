@@ -2,9 +2,9 @@ package com.techmania.mathe_game
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log.d
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,22 +15,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addition: Button
     private lateinit var subtraction: Button
     private lateinit var multi: Button
+    private lateinit var division : Button
 
-
-    lateinit var spinner: Spinner
+    private lateinit var settings : ImageView
+    private lateinit var spinner: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        spinner = findViewById(R.id.spinner)
-        var arrayAdapter = ArrayAdapter.createFromResource(
-            applicationContext,R.array.difficulties, android.R.layout.simple_spinner_item
-        )
-        //dropdown definieren
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
-        //spinner befüllen
-        spinner.adapter = arrayAdapter
 
         initViews()
         initListeners()
@@ -41,7 +33,22 @@ class MainActivity : AppCompatActivity() {
         addition = findViewById(R.id.buttonAdd)
         subtraction = findViewById(R.id.buttonSub)
         multi = findViewById(R.id.buttonMulti)
+        division = findViewById(R.id.buttonDivision)
 
+        spinner = findViewById(R.id.spinner)
+        settings = findViewById(R.id.imageSettings)
+
+        setupDifficultyDropdown()
+    }
+
+    private fun setupDifficultyDropdown() {
+        val arrayAdapter = ArrayAdapter.createFromResource(
+            applicationContext,R.array.difficulties, android.R.layout.simple_spinner_item
+        )
+        //dropdown definieren
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        //spinner befüllen
+        spinner.adapter = arrayAdapter
     }
 
     private fun initListeners() {
@@ -60,13 +67,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent) //second activity will open
         }
 
-       /* start.setOnClickListener {
-            //intent to open another activity
-            val intent = Intent(this@MainActivity, ScoreboardActivity::class.java)
-            startActivity(intent) //second activity will open
-        }*/
         multi.setOnClickListener{
-            val intent = Intent(this@MainActivity, Multiplication::class.java)
+            val intent = Intent(this@MainActivity, MultiplicationActivity::class.java)
+            startActivity(intent)
+        }
+
+        division.setOnClickListener {
+            val intent = Intent(this@MainActivity, DivisionActivity::class.java)
+            startActivity(intent)
+        }
+
+        settings.setOnClickListener {
+            val intent = Intent(this@MainActivity, SettingsActivity::class.java)
             startActivity(intent)
         }
     }

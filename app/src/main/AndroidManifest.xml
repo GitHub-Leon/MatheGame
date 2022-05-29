@@ -18,7 +18,7 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight"/>
         <activity
-            android:name=".Division"
+            android:name=".DivisionActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
@@ -26,7 +26,7 @@
             android:exported="false"
             android:theme="@style/Theme.MatheGame" />
         <activity
-            android:name=".Multiplication"
+            android:name=".MultiplicationActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />

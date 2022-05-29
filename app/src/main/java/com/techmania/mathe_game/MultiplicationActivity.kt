@@ -19,7 +19,7 @@ import java.util.*
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
-class Multiplication : AppCompatActivity() {
+class MultiplicationActivity : AppCompatActivity() {
     private var difficultyLevel = 1  //get difficulty level from main activity as intent ?!
     private var correctButton = -1
     private var lives = 3
