@@ -15,10 +15,12 @@ import com.techmania.mathe_game.views.KonfettiView
 
 
 class ResultActivity : AppCompatActivity() {
-    private lateinit var exitButton : Button
-    private lateinit var playAgainButton : Button
-    private lateinit var score : TextView
-    private lateinit var viewKonfetti : KonfettiView
+    private lateinit var exitButton: Button
+    private lateinit var playAgainButton: Button
+    private lateinit var score: TextView
+    private lateinit var viewKonfetti: KonfettiView
+
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,13 @@ class ResultActivity : AppCompatActivity() {
         viewKonfetti.start(Presets.rain())
         playCheer()
         hideSystemBars()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.stop()
+        mediaPlayer.reset()
+        mediaPlayer.release()
     }
 
     private fun hideSystemBars() {
@@ -47,20 +56,21 @@ class ResultActivity : AppCompatActivity() {
         /*
         Init views
          */
-        exitButton.setOnClickListener(View.OnClickListener {
+        exitButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        })
-        playAgainButton.setOnClickListener(View.OnClickListener {
-            lateinit var intentNew : Intent
+        }
+        playAgainButton.setOnClickListener {
+            lateinit var intentNew: Intent
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)
+                "Multiplication" -> intentNew = Intent(this, Multiplication::class.java)
                 //TODO: ADD OTHER GAMEMODES
             }
 
             startActivity(intentNew)
-        })
+        }
     }
 
     private fun initViews() {
@@ -71,8 +81,8 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun playCheer() {
-        val mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
-        mediaPlayer!!.start()
+        mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
+        mediaPlayer.start()
     }
 
 }

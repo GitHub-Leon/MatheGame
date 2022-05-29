@@ -55,11 +55,12 @@ class SubtractionActivity : AppCompatActivity() {
         /*
         Generates random solutions and a random question
          */
-        val numGenerator: Random = Random(System.currentTimeMillis())
+        val numGenerator = Random(System.currentTimeMillis())
         val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
-        questionField.text = "$numberOne - $numberTwo" //set question with correct string
+        questionField.text = StringBuilder().append("$numberOne").append(" - ").append("$numberTwo")
+            .toString() //set question with correct string
 
         //set correctButton and put the right value into it
         val buttonArray = arrayOf(
@@ -67,15 +68,37 @@ class SubtractionActivity : AppCompatActivity() {
             buttonSolutionTwo,
             buttonSolutionThree
         ) //create array of solutionButtons
-        correctButton = numGenerator.nextInt().mod(3) //get a random Button and set it as the correctButton
-        buttonArray[correctButton].text = (numberOne.minus(numberTwo)).toString() //set the right value into the button
 
-        buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
-        buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+        correctButton =
+            numGenerator.nextInt().mod(3) //get a random Button and set it as the correctButton
 
-        while(buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(buttonSolutionThree.text) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)) {
-            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
-            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
+        buttonArray[correctButton].text =
+            (numberOne.minus(numberTwo)).toString() //set the right value into the button
+        buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(
+            numGenerator.nextInt(
+                10f.pow(difficultyLevel).roundToInt()
+            )
+        )).toString()
+        buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(
+            numGenerator.nextInt(
+                10f.pow(difficultyLevel).roundToInt()
+            )
+        )).toString()
+
+        while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
+                buttonSolutionThree.text
+            ) || buttonSolutionTwo.text.equals(buttonSolutionThree.text)
+        ) {
+            buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.minus(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
+            buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.minus(
+                numGenerator.nextInt(
+                    10f.pow(difficultyLevel).roundToInt()
+                )
+            )).toString()
         }
     }
 
@@ -191,7 +214,7 @@ class SubtractionActivity : AppCompatActivity() {
             //gets called when timer finishes
             override fun onFinish() {
                 if (lives > 1) {
-                    Toast.makeText(applicationContext, "YOU LOST A FUCKING LIFE", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "YOU LOST A LIFE", Toast.LENGTH_SHORT).show()
                 }
                 this.start()
                 reduceLives()

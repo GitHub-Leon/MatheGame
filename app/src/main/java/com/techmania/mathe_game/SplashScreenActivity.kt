@@ -15,14 +15,17 @@ import java.util.*
 
 
 class SplashScreenActivity : AppCompatActivity() {
-    private lateinit var topAnimation : Animation
-    private lateinit var bottomAnimation : Animation
-    private lateinit var image : ImageView
-    private lateinit var title : TextView
+    private lateinit var topAnimation: Animation
+    private lateinit var bottomAnimation: Animation
+    private lateinit var image: ImageView
+    private lateinit var title: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) //Hide Status bar
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        ) //Hide Status bar
         setContentView(R.layout.activity_splash_screen)
 
         setAppLanguage()
