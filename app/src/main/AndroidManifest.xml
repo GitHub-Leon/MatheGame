@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GamePage">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight"/>
+        <activity
             android:name=".Division"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

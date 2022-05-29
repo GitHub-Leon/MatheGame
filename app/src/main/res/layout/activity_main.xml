@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/first_new"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -25,9 +25,9 @@
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="75dp"
+        android:text="@string/addition"
+        android:textSize="20sp" />
         android:fontFamily="casual"
-        android:text="Addition"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
@@ -35,9 +35,9 @@
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
+        android:text="@string/subtraction"
+        android:textSize="20sp" />
         android:fontFamily="casual"
-        android:text="Subtraktion"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
@@ -45,19 +45,19 @@
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
+        android:text="@string/multiplication"
+        android:textSize="20sp" />
         android:fontFamily="casual"
-        android:text="Multiplikation"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonDivision"
         android:layout_width="250dp"
         android:layout_height="75dp"
+        android:text="@string/scoreboard"
+        android:textSize="20sp" />
         android:layout_marginTop="20dp"
         android:fontFamily="casual"
-        android:text="Division"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
 </LinearLayout>

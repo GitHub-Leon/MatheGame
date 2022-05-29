@@ -2,6 +2,8 @@ package com.techmania.mathe_game
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.*
 import android.view.View
 import android.widget.Button
@@ -47,12 +49,13 @@ class AdditionActivity : AppCompatActivity() {
         hideSystemBars()
     }
 
-    fun generateQuestion() {
-        val numGenerator: Random = Random(System.currentTimeMillis())
+    private fun generateQuestion() {
+        val numGenerator = Random(System.currentTimeMillis())
         val numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
         val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
-        questionField.text = "$numberOne+$numberTwo"
+        questionField.text =
+            StringBuilder().append("$numberOne").append(" + ").append("$numberTwo").toString()
 
         val buttonArray = arrayOf(
             buttonSolutionOne,
@@ -61,8 +64,8 @@ class AdditionActivity : AppCompatActivity() {
         )
 
         correctButton = numGenerator.nextInt().mod(3)
-        buttonArray[correctButton].text = numberOne.plus(numberTwo).toString()
 
+        buttonArray[correctButton].text = numberOne.plus(numberTwo).toString()
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberOne.plus(numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()))).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
@@ -96,7 +99,7 @@ class AdditionActivity : AppCompatActivity() {
         windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
     }
 
-    fun initViews() {
+    private fun initViews() {
         buttonSolutionOne = findViewById(R.id.buttonSolutionOne)
         buttonSolutionTwo = findViewById(R.id.buttonSolutionTwo)
         buttonSolutionThree = findViewById(R.id.buttonSolutionThree)
@@ -116,7 +119,7 @@ class AdditionActivity : AppCompatActivity() {
         /*
         Initializes listeners
          */
-        buttonSolutionOne.setOnClickListener(View.OnClickListener {
+        buttonSolutionOne.setOnClickListener {
             if (correctButton == 0) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -127,8 +130,8 @@ class AdditionActivity : AppCompatActivity() {
                 countDownTimer.start()
             }
             generateQuestion()
-        })
-        buttonSolutionTwo.setOnClickListener(View.OnClickListener {
+        }
+        buttonSolutionTwo.setOnClickListener {
             if (correctButton == 1) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -139,8 +142,8 @@ class AdditionActivity : AppCompatActivity() {
                 countDownTimer.start()
             }
             generateQuestion()
-        })
-        buttonSolutionThree.setOnClickListener(View.OnClickListener {
+        }
+        buttonSolutionThree.setOnClickListener {
             if (correctButton == 2) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -151,7 +154,7 @@ class AdditionActivity : AppCompatActivity() {
                 countDownTimer.start()
             }
             generateQuestion()
-        })
+        }
     }
 
     private fun reduceLives() {
@@ -173,38 +176,12 @@ class AdditionActivity : AppCompatActivity() {
                 db.addHighScore(scoreValue.text.toString().toInt())
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("Gamemode", "Subtraction")
+                intent.putExtra("Gamemode", "Addition")
                 intent.putExtra("Score", scoreValue.text)
                 startActivity(intent) //result activity will open
             }
         }
         vibratePhone()
-        fun startTimer() {
-            /*
-            Timer function -> Counts down from 60 secs to 0 and then disables buttons
-             */
-            countDownTimer = object : CountDownTimer(timer, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    timerValue.text = (millisUntilFinished / 1000).toString()
-                    timeLeft = millisUntilFinished / 1000
-                }
-
-                //gets called when timer finishes
-                override fun onFinish() {
-                    if (lives > 1) {
-                        Toast.makeText(
-                            applicationContext,
-                            "YOU LOST A FUCKING LIFE",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    this.start()
-                    reduceLives()
-                    generateQuestion()
-                }
-            }.start()
-        }
-
     }
 
     private fun vibratePhone() {
@@ -231,7 +208,7 @@ class AdditionActivity : AppCompatActivity() {
                 if (lives > 1) {
                     Toast.makeText(
                         applicationContext,
-                        "YOU LOST A FUCKING LIFE",
+                        "YOU LOST A LIFE",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

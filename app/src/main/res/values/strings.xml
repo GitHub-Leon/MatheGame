@@ -6,14 +6,29 @@
     <string name="_60">60</string>
     <string name="play_again">Play Again</string>
     <string name="exit">Exit</string>
-    <string name="todo">TODO</string>
 
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="audio">Audio</string>
+    <string name="music">Music</string>
+    <string name="vibration">Vibration</string>
+    <string name="sound">Sound</string>
+    <string name="generalSettings">General Settings</string>
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="scoreGamemode">Score</string>
+    <string name="mathforkids">Math for Kids</string>
+    <string name="time">Time</string>
+  
     <string name="app_name1">Spinner</string>
+  
     <string-array name="difficulties">
         <item>easy</item>
         <item>normal</item>
         <item>hard</item>
         <item>asian</item>
-
     </string-array>
+  
 </resources>
