@@ -20,6 +20,8 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var score : TextView
     private lateinit var viewKonfetti : KonfettiView
 
+    private lateinit var mediaPlayer : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
@@ -31,6 +33,13 @@ class ResultActivity : AppCompatActivity() {
         viewKonfetti.start(Presets.rain())
         playCheer()
         hideSystemBars()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.stop()
+        mediaPlayer.reset()
+        mediaPlayer.release()
     }
 
     private fun hideSystemBars() {
@@ -71,8 +80,8 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun playCheer() {
-        val mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
-        mediaPlayer!!.start()
+        mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
+        mediaPlayer.start()
     }
 
 }
