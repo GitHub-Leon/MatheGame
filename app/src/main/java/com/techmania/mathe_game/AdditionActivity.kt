@@ -173,7 +173,7 @@ class AdditionActivity : AppCompatActivity() {
                 db.addHighScore(scoreValue.text.toString().toInt())
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("Gamemode", "Subtraction")
+                intent.putExtra("Gamemode", "Addition")
                 intent.putExtra("Score", scoreValue.text)
                 startActivity(intent) //result activity will open
             }
@@ -195,7 +195,7 @@ class AdditionActivity : AppCompatActivity() {
                 if (lives > 1) {
                     Toast.makeText(
                         applicationContext,
-                        "YOU LOST A FUCKING LIFE",
+                        "YOU LOST A LIFE",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

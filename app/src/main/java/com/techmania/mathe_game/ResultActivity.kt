@@ -56,20 +56,21 @@ class ResultActivity : AppCompatActivity() {
         /*
         Init views
          */
-        exitButton.setOnClickListener(View.OnClickListener {
+        exitButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        })
-        playAgainButton.setOnClickListener(View.OnClickListener {
+        }
+        playAgainButton.setOnClickListener {
             lateinit var intentNew: Intent
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)
+                "Multiplication" -> intentNew = Intent(this, Multiplication::class.java)
                 //TODO: ADD OTHER GAMEMODES
             }
 
             startActivity(intentNew)
-        })
+        }
     }
 
     private fun initViews() {
