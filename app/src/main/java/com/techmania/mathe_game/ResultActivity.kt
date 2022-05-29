@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,8 +31,17 @@ class ResultActivity : AppCompatActivity() {
         initListeners()
 
         viewKonfetti = findViewById(R.id.konfettiView)
-        viewKonfetti.start(Presets.rain())
-        playSound(R.raw.cheer)
+        if (intent.getStringExtra("Score")?.toInt()!! > 0) {
+            viewKonfetti.start(Presets.rain())
+            playSound(R.raw.cheer)
+        } else {
+            playSound(R.raw.fart)
+            val gz : TextView = findViewById(R.id.textCongratulation)
+            gz.text = getString(R.string.try_again)
+            val shit : ImageView = findViewById(R.id.imageView)
+            shit.setImageResource(R.drawable.shit)
+        }
+
         hideSystemBars()
     }
 
