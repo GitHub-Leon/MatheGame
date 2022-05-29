@@ -7,4 +7,13 @@
     <string name="play_again">Play Again</string>
     <string name="exit">Exit</string>
     <string name="todo">TODO</string>
+
+    <string name="app_name1">Spinner</string>
+    <string-array name="difficulties">
+        <item>easy</item>
+        <item>normal</item>
+        <item>hard</item>
+        <item>asian</item>
+
+    </string-array>
 </resources>

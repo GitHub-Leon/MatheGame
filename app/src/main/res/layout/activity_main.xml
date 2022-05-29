@@ -8,35 +8,56 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:foregroundTintMode="screen"
+        android:popupElevation="20dp"
+        android:scrollbarSize="20dp"
+        android:soundEffectsEnabled="true"
+
+        android:spinnerMode="dialog"
+        android:textAlignment="center" />
+
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="75dp"
+        android:fontFamily="casual"
         android:text="Addition"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonSub"
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="casual"
         android:text="Subtraktion"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonMulti"
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="casual"
         android:text="Multiplikation"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/buttonScoreboard"
+        android:id="@+id/buttonDivision"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:layout_marginTop="200dp"
-        android:text="Scoreboard"
-        android:textSize="20sp" />
+        android:layout_marginTop="20dp"
+        android:fontFamily="casual"
+        android:text="Division"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 </LinearLayout>
