@@ -1,17 +1,10 @@
 package com.techmania.mathe_game
 
-import android.graphics.BlendMode
-import android.graphics.BlendModeColorFilter
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.PorterDuff
+import android.graphics.*
 import android.os.Build
 import nl.dionsegijn.konfetti.core.models.Shape
-import nl.dionsegijn.konfetti.core.models.Shape.Circle
+import nl.dionsegijn.konfetti.core.models.Shape.*
 import nl.dionsegijn.konfetti.core.models.Shape.Circle.rect
-import nl.dionsegijn.konfetti.core.models.Shape.DrawableShape
-import nl.dionsegijn.konfetti.core.models.Shape.Rectangle
-import nl.dionsegijn.konfetti.core.models.Shape.Square
 
 /**
  * Draw a shape to `canvas`. Implementations are expected to draw within a square of size

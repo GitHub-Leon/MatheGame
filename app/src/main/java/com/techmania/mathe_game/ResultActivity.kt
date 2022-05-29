@@ -15,12 +15,12 @@ import com.techmania.mathe_game.views.KonfettiView
 
 
 class ResultActivity : AppCompatActivity() {
-    private lateinit var exitButton : Button
-    private lateinit var playAgainButton : Button
-    private lateinit var score : TextView
-    private lateinit var viewKonfetti : KonfettiView
+    private lateinit var exitButton: Button
+    private lateinit var playAgainButton: Button
+    private lateinit var score: TextView
+    private lateinit var viewKonfetti: KonfettiView
 
-    private lateinit var mediaPlayer : MediaPlayer
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +61,7 @@ class ResultActivity : AppCompatActivity() {
             startActivity(intent)
         })
         playAgainButton.setOnClickListener(View.OnClickListener {
-            lateinit var intentNew : Intent
+            lateinit var intentNew: Intent
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)

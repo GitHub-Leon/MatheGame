@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, ScoreboardActivity::class.java)
             startActivity(intent) //second activity will open
         }
-        multi.setOnClickListener{
+        multi.setOnClickListener {
             val intent = Intent(this@MainActivity, Multiplication::class.java)
             startActivity(intent)
         }
