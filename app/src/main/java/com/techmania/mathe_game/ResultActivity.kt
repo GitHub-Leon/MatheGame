@@ -4,11 +4,13 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 import com.techmania.mathe_game.helpers.Presets
 import com.techmania.mathe_game.views.KonfettiView
 
@@ -29,8 +31,17 @@ class ResultActivity : AppCompatActivity() {
         initListeners()
 
         viewKonfetti = findViewById(R.id.konfettiView)
-        viewKonfetti.start(Presets.rain())
-        playCheer()
+        if (intent.getStringExtra("Score")?.toInt()!! > 0) {
+            viewKonfetti.start(Presets.rain())
+            playSound(R.raw.cheer)
+        } else {
+            playSound(R.raw.fart)
+            val gz : TextView = findViewById(R.id.textCongratulation)
+            gz.text = getString(R.string.try_again)
+            val shit : ImageView = findViewById(R.id.imageView)
+            shit.setImageResource(R.drawable.shit)
+        }
+
         hideSystemBars()
     }
 
@@ -56,16 +67,18 @@ class ResultActivity : AppCompatActivity() {
         Init views
          */
         exitButton.setOnClickListener {
+            playSound(R.raw.blob)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         playAgainButton.setOnClickListener {
+            playSound(R.raw.blob)
             lateinit var intentNew: Intent
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)
                 "Multiplication" -> intentNew = Intent(this, MultiplicationActivity::class.java)
-                //TODO: ADD OTHER GAMEMODES
+                "Division" -> intentNew = Intent(this, DivisionActivity::class.java)
             }
 
             startActivity(intentNew)
@@ -79,9 +92,10 @@ class ResultActivity : AppCompatActivity() {
         score.text = intent.getStringExtra("Score")
     }
 
-    private fun playCheer() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.cheer)
-        mediaPlayer.start()
+    private fun playSound(resid:Int) {
+        if (PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+            mediaPlayer = MediaPlayer.create(this, resid)
+            mediaPlayer.start()
+        }
     }
-
 }
