@@ -65,6 +65,8 @@ class Multiplication : AppCompatActivity() {
 
         buttonArray[correctButton].text =
             numberOne.times(numberTwo).toString()//richtige Ergebnis in den Button
+        buttonArray[correctButton].text =
+            numberOne.times(numberTwo).toString()//richtige Ergebnis in den Button
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberOne.times(
                 numGenerator.nextInt(
