@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addition: Button
     private lateinit var subtraction: Button
     private lateinit var multi: Button
+    private lateinit var division: Button
 
 
     lateinit var spinner: Spinner
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         addition = findViewById(R.id.buttonAdd)
         subtraction = findViewById(R.id.buttonSub)
         multi = findViewById(R.id.buttonMulti)
+        division = findViewById(R.id.buttonDivision)
 
     }
 
@@ -67,6 +69,10 @@ class MainActivity : AppCompatActivity() {
         }*/
         multi.setOnClickListener{
             val intent = Intent(this@MainActivity, Multiplication::class.java)
+            startActivity(intent)
+        }
+        division.setOnClickListener{
+            val intent = Intent(this@MainActivity, Division::class.java)
             startActivity(intent)
         }
     }
