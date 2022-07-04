@@ -3,7 +3,6 @@ package com.techmania.mathe_game
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -65,7 +64,7 @@ class ResultActivity : AppCompatActivity() {
             when (intent.getStringExtra("Gamemode")) {
                 "Subtraction" -> intentNew = Intent(this, SubtractionActivity::class.java)
                 "Addition" -> intentNew = Intent(this, AdditionActivity::class.java)
-                "Multiplication" -> intentNew = Intent(this, Multiplication::class.java)
+                "Multiplication" -> intentNew = Intent(this, MultiplicationActivity::class.java)
                 //TODO: ADD OTHER GAMEMODES
             }
 

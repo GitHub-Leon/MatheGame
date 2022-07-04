@@ -7,7 +7,7 @@
     android:background="@drawable/second"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Multiplication">
+    tools:context=".MultiplicationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
