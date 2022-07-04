@@ -52,8 +52,8 @@ class Multiplication : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
-        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
+        var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
+        var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
         questionField.text =
             StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
@@ -63,6 +63,11 @@ class Multiplication : AppCompatActivity() {
             buttonSolutionTwo,
             buttonSolutionThree
         )
+
+        while(numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
+            numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
+            numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
+        }
 
         correctButton = numGenerator.nextInt().mod(3)//random Button = correct
 
