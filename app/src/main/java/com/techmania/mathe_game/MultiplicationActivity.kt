@@ -2,6 +2,7 @@ package com.techmania.mathe_game
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.*
@@ -14,6 +15,7 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 import com.techmania.mathe_game.helpers.DBHelper
 import java.util.*
 import kotlin.math.pow
@@ -35,6 +37,7 @@ class MultiplicationActivity : AppCompatActivity() {
 
     private lateinit var db: DBHelper
     private lateinit var countDownTimer: CountDownTimer
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -220,6 +223,10 @@ class MultiplicationActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 timerValue.text = (millisUntilFinished / 1000).toString()
                 timeLeft = millisUntilFinished / 1000
+
+                if (timeLeft == 5L && PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+                    playSound(R.raw.time_bomb_6sec)
+                }
             }
 
             //gets called when timer finishes
@@ -236,5 +243,12 @@ class MultiplicationActivity : AppCompatActivity() {
                 generateQuestion()
             }
         }.start()
+    }
+
+    private fun playSound(resid:Int) {
+        if (PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+            mediaPlayer = MediaPlayer.create(this, resid)
+            mediaPlayer.start()
+        }
     }
 }

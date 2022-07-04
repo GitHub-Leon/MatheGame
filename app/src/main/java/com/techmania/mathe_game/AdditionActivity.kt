@@ -100,9 +100,12 @@ class AdditionActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        mediaPlayer.stop()
-        mediaPlayer.reset()
-        mediaPlayer.release()
+
+        if (this::mediaPlayer.isInitialized) { //only try to stop the mediaPlayer, if it is initialized
+            mediaPlayer.stop()
+            mediaPlayer.reset()
+            mediaPlayer.release()
+        }
     }
 
     private fun hideSystemBars() {
