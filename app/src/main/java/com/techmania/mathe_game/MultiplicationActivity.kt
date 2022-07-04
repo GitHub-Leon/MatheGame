@@ -52,8 +52,9 @@ class MultiplicationActivity : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
-        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
+        var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
+        var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
+
 
         questionField.text =
             StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
@@ -64,6 +65,13 @@ class MultiplicationActivity : AppCompatActivity() {
             buttonSolutionThree
         )
 
+
+        while (numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
+            numberOne = numGenerator.nextInt(100f.pow(difficultyLevel - 1).roundToInt())
+            numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
+        }
+
+
         correctButton = numGenerator.nextInt().mod(3)//random Button = correct
 
         buttonArray[correctButton].text =
@@ -73,13 +81,13 @@ class MultiplicationActivity : AppCompatActivity() {
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
+                    10f.pow(difficultyLevel - 1).roundToInt()
                 )
             )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
             (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
+                    10f.pow(difficultyLevel - 1).roundToInt()
                 )
             )).toString()
 
@@ -89,12 +97,12 @@ class MultiplicationActivity : AppCompatActivity() {
         ) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
+                    10f.pow(difficultyLevel - 1).roundToInt()
                 )
             )).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
+                    10f.pow(difficultyLevel - 1).roundToInt()
                 )
             )).toString()
         }
