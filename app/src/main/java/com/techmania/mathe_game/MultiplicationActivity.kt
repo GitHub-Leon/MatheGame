@@ -55,6 +55,7 @@ class MultiplicationActivity : AppCompatActivity() {
         var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
         var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
 
+
         questionField.text =
             StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
 
@@ -64,10 +65,12 @@ class MultiplicationActivity : AppCompatActivity() {
             buttonSolutionThree
         )
 
+
         while (numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
             numberOne = numGenerator.nextInt(100f.pow(difficultyLevel - 1).roundToInt())
             numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
         }
+
 
         correctButton = numGenerator.nextInt().mod(3)//random Button = correct
 

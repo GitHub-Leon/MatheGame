@@ -20,16 +20,18 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         initViews()
-        registerLanguageChangeListener()
+        registerSettingsChangeListener()
 
         supportActionBar?.title = "Settings" //set title of actionbar to Settings
     }
 
-    private fun registerLanguageChangeListener() {
+    private fun registerSettingsChangeListener() {
         val spChanged =
             OnSharedPreferenceChangeListener { sharedPreferences, key ->
-                setLocale(sharedPreferences.getString(key, ""))
-                setSettingsContainerView()
+                if (key == "language") {
+                    setLocale(sharedPreferences.getString(key, ""))
+                    setSettingsContainerView()
+                }
             }
 
         prefs.registerOnSharedPreferenceChangeListener(spChanged)
@@ -53,10 +55,7 @@ class SettingsActivity : AppCompatActivity() {
         val config = resources.configuration
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            config.setLocale(locale)
-        else
-            config.locale = locale
+        config.setLocale(locale)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             createConfigurationContext(config)
