@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.view.Display
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import java.util.*
+import kotlin.math.roundToInt
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -74,6 +76,9 @@ class SplashScreenActivity : AppCompatActivity() {
         //set animations
         title.animation = topAnimation
         image.animation = bottomAnimation
+
+        image.layoutParams.height = (display!!.height/1.5).roundToInt()
+        image.layoutParams.width = (display!!.width/1.5).roundToInt()
     }
 
     companion object {
