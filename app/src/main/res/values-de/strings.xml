@@ -7,6 +7,7 @@
     <string name="play_again">Nochmal</string>
     <string name="exit">Beenden</string>
     <string name="todo">TODO</string>
+
     <string name="language">Sprache</string>
     <string name="theme">Theme</string>
     <string name="audio">Audio</string>
@@ -20,6 +21,6 @@
     <string name="division">Division</string>
     <string name="scoreGamemode">Punkte</string>
     <string name="mathforkids">Mathe für Kinder</string>
-    <string name="try_again">Übung macht den Meister</string>
     <string name="time">Zeit</string>
+    <string name="try_again">Übung macht den Meister</string>
 </resources>
