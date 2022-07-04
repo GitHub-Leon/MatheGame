@@ -65,7 +65,7 @@ class AdditionActivity : AppCompatActivity() {
 
         correctButton = numGenerator.nextInt().mod(3)
 
-        while(numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
+        while (numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
             numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
             numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         }

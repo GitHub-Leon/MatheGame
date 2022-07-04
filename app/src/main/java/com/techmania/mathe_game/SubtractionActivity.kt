@@ -70,7 +70,7 @@ class SubtractionActivity : AppCompatActivity() {
         ) //create array of solutionButtons
 
 
-        while(numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
+        while ((numberOne == 0 || numberTwo == 0) || (difficultyLevel <= 2 && numberOne <= numberTwo)) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
             numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
             numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         }
