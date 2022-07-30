@@ -16,7 +16,7 @@ import java.util.*
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
-class Division : AppCompatActivity() {
+class DivisionActivity : AppCompatActivity() {
     private var difficultyLevel = 1  //get difficulty level from main activity as intent ?!
     private var correctButton = -1
     private var lives = 3
@@ -184,7 +184,7 @@ class Division : AppCompatActivity() {
                 db.addHighScore(scoreValue.text.toString().toInt())
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("Gamemode", "Division")
+                intent.putExtra("Gamemode", "DivisionActivity")
                 intent.putExtra("Score", scoreValue.text)
                 startActivity(intent) //result activity will open
             }

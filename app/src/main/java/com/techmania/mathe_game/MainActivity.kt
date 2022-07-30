@@ -2,7 +2,6 @@ package com.techmania.mathe_game
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log.d
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
@@ -68,11 +67,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent) //second activity will open
         }*/
         multi.setOnClickListener{
-            val intent = Intent(this@MainActivity, Multiplication::class.java)
+            val intent = Intent(this@MainActivity, MultiplicationActivity::class.java)
             startActivity(intent)
         }
         division.setOnClickListener{
-            val intent = Intent(this@MainActivity, Division::class.java)
+            val intent = Intent(this@MainActivity, DivisionActivity::class.java)
             startActivity(intent)
         }
     }
