@@ -49,8 +49,8 @@ class Division : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())+1
-        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())+1
+        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
+        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
         val numberThree = numberOne.times(numberTwo)
 
         questionField.text =
@@ -70,14 +70,14 @@ class Division : AppCompatActivity() {
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
             (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
@@ -86,13 +86,13 @@ class Division : AppCompatActivity() {
         ) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         }
     }

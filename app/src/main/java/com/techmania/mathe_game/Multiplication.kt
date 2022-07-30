@@ -52,8 +52,8 @@ class Multiplication : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
-        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
+        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
+        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
 
         questionField.text =
             StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
@@ -73,14 +73,14 @@ class Multiplication : AppCompatActivity() {
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
             (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
@@ -89,13 +89,13 @@ class Multiplication : AppCompatActivity() {
         ) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         }
     }
