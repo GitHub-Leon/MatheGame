@@ -3,15 +3,12 @@ package com.techmania.mathe_game
 import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
-import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.*
-import androidx.appcompat.app.AppCompatActivity
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -149,6 +146,7 @@ class MultiplicationActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
         buttonSolutionTwo.setOnClickListener {
@@ -161,6 +159,7 @@ class MultiplicationActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
         buttonSolutionThree.setOnClickListener {
@@ -173,6 +172,7 @@ class MultiplicationActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
     }

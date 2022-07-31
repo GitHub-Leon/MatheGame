@@ -39,7 +39,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun initViews() {
         fragmentContainerView = findViewById(R.id.fragmentContainerView)
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         setSettingsContainerView()
     }

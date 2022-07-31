@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var division : Button
 
     private lateinit var settings : ImageView
-    private lateinit var spinner: Spinner
+    //private lateinit var spinner: Spinner
     private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +38,13 @@ class MainActivity : AppCompatActivity() {
         multi = findViewById(R.id.buttonMulti)
         division = findViewById(R.id.buttonDivision)
 
-        spinner = findViewById(R.id.spinner)
+       // spinner = findViewById(R.id.spinner)
         settings = findViewById(R.id.imageSettings)
 
-        setupDifficultyDropdown()
+        //setupDifficultyDropdown()
     }
 
-    private fun setupDifficultyDropdown() {
+   /* private fun setupDifficultyDropdown() {
         val arrayAdapter = ArrayAdapter.createFromResource(
             applicationContext,R.array.difficulties, android.R.layout.simple_spinner_item
         )
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
         //spinner befüllen
         spinner.adapter = arrayAdapter
-    }
+    }*/
 
     private fun initListeners() {
         addition.setOnClickListener {

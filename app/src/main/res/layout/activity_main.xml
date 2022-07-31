@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".MainActivity">
 
-        <Spinner
+        <!--Spinner
             android:id="@+id/spinner"
             android:layout_width="250dp"
             android:layout_height="75dp"
@@ -42,7 +42,7 @@
             android:scrollbarSize="20dp"
             android:soundEffectsEnabled="true"
             android:spinnerMode="dialog"
-            android:textAlignment="center" />
+            android:textAlignment="center" /-->
 
         <Button
             android:id="@+id/buttonAdd"

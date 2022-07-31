@@ -155,6 +155,7 @@ class SubtractionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         })
         buttonSolutionTwo.setOnClickListener(View.OnClickListener {
@@ -167,6 +168,7 @@ class SubtractionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         })
         buttonSolutionThree.setOnClickListener(View.OnClickListener {
@@ -179,6 +181,7 @@ class SubtractionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         })
     }

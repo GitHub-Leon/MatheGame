@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.*
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -140,6 +140,7 @@ class DivisionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
         buttonSolutionTwo.setOnClickListener {
@@ -152,6 +153,7 @@ class DivisionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
         buttonSolutionThree.setOnClickListener {
@@ -164,6 +166,7 @@ class DivisionActivity : AppCompatActivity() {
                 countDownTimer.cancel()
                 countDownTimer.start()
             }
+            playSound(R.raw.blob)
             generateQuestion()
         }
     }
@@ -212,6 +215,10 @@ class DivisionActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 timerValue.text = (millisUntilFinished / 1000).toString()
                 timeLeft = millisUntilFinished / 1000
+
+                if (timeLeft == 5L && PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+                    playSound(R.raw.time_bomb_6sec)
+                }
             }
 
             //gets called when timer finishes
