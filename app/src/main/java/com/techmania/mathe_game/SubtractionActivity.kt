@@ -145,7 +145,7 @@ class SubtractionActivity : AppCompatActivity() {
         /*
         Initializes listeners
          */
-        buttonSolutionOne.setOnClickListener(View.OnClickListener {
+        buttonSolutionOne.setOnClickListener {
             if (correctButton == 0) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -157,8 +157,8 @@ class SubtractionActivity : AppCompatActivity() {
             }
             playSound(R.raw.blob)
             generateQuestion()
-        })
-        buttonSolutionTwo.setOnClickListener(View.OnClickListener {
+        }
+        buttonSolutionTwo.setOnClickListener {
             if (correctButton == 1) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -170,8 +170,8 @@ class SubtractionActivity : AppCompatActivity() {
             }
             playSound(R.raw.blob)
             generateQuestion()
-        })
-        buttonSolutionThree.setOnClickListener(View.OnClickListener {
+        }
+        buttonSolutionThree.setOnClickListener {
             if (correctButton == 2) {
                 scoreValue.text = (scoreValue.text.toString().toInt().plus(timeLeft)).toString()
             } else {
@@ -183,7 +183,7 @@ class SubtractionActivity : AppCompatActivity() {
             }
             playSound(R.raw.blob)
             generateQuestion()
-        })
+        }
     }
 
     private fun reduceLives() {

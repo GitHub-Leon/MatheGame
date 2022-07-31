@@ -54,7 +54,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun startMainMenu() {
-        Handler().postDelayed(Runnable {
+        Handler().postDelayed({
             kotlin.run {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
