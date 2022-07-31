@@ -2,6 +2,7 @@ package com.techmania.mathe_game
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 import com.techmania.mathe_game.helpers.DBHelper
 import java.util.*
 import kotlin.math.pow
@@ -32,6 +34,7 @@ class DivisionActivity : AppCompatActivity() {
 
     private lateinit var db: DBHelper
     private lateinit var countDownTimer: CountDownTimer
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +52,8 @@ class DivisionActivity : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())+1
-        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())+1
+        val numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
+        val numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
         val numberThree = numberOne.times(numberTwo)
 
         questionField.text =
@@ -70,14 +73,14 @@ class DivisionActivity : AppCompatActivity() {
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
             (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
@@ -86,13 +89,13 @@ class DivisionActivity : AppCompatActivity() {
         ) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberThree.div(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         }
     }
@@ -184,7 +187,7 @@ class DivisionActivity : AppCompatActivity() {
                 db.addHighScore(scoreValue.text.toString().toInt())
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("Gamemode", "DivisionActivity")
+                intent.putExtra("Gamemode", "Division")
                 intent.putExtra("Score", scoreValue.text)
                 startActivity(intent) //result activity will open
             }
@@ -225,5 +228,11 @@ class DivisionActivity : AppCompatActivity() {
                 generateQuestion()
             }
         }.start()
+    }
+    private fun playSound(resid:Int) {
+        if (PreferenceManager.getDefaultSharedPreferences(applicationContext).getBoolean("sound", false)) {
+            mediaPlayer = MediaPlayer.create(this, resid)
+            mediaPlayer.start()
+        }
     }
 }

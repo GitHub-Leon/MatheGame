@@ -58,9 +58,6 @@ class AdditionActivity : AppCompatActivity() {
         var numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
         var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
-        questionField.text =
-            StringBuilder().append("$numberOne").append(" + ").append("$numberTwo").toString()
-
         val buttonArray = arrayOf(
             buttonSolutionOne,
             buttonSolutionTwo,
@@ -73,6 +70,8 @@ class AdditionActivity : AppCompatActivity() {
             numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
             numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         }
+        questionField.text =
+            StringBuilder().append("$numberOne").append(" + ").append("$numberTwo").toString()
 
         buttonArray[correctButton].text = numberOne.plus(numberTwo).toString()
         buttonArray[(correctButton.plus(1).mod(3))].text =

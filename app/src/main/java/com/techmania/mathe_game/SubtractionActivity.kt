@@ -61,9 +61,6 @@ class SubtractionActivity : AppCompatActivity() {
         var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
 
-        questionField.text = StringBuilder().append("$numberOne").append(" - ").append("$numberTwo")
-            .toString() //set question with correct string
-
         //set correctButton and put the right value into it
         val buttonArray = arrayOf(
             buttonSolutionOne,
@@ -76,6 +73,9 @@ class SubtractionActivity : AppCompatActivity() {
             numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt())
             numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt())
         }
+
+        questionField.text = StringBuilder().append("$numberOne").append(" - ").append("$numberTwo")
+            .toString() //set question with correct string
 
         correctButton =
             numGenerator.nextInt().mod(3) //get a random Button and set it as the correctButton

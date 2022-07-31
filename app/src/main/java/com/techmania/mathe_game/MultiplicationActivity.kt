@@ -55,12 +55,8 @@ class MultiplicationActivity : AppCompatActivity() {
 
     private fun generateQuestion() {
         val numGenerator = Random(System.currentTimeMillis())
-        var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
-        var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
-
-
-        questionField.text =
-            StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
+        var numberOne = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
+        var numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
 
         val buttonArray = arrayOf(
             buttonSolutionOne,
@@ -70,9 +66,11 @@ class MultiplicationActivity : AppCompatActivity() {
 
 
         while (numberOne == 0 || numberTwo == 0) { //reassign values if they are equal to 0 (we don't want 8 + 0 as a calculation)
-            numberOne = numGenerator.nextInt(100f.pow(difficultyLevel - 1).roundToInt())
-            numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel - 1).roundToInt())
+            numberOne = numGenerator.nextInt(100f.pow(difficultyLevel).roundToInt()-1)+1
+            numberTwo = numGenerator.nextInt(10f.pow(difficultyLevel).roundToInt()-1)+1
         }
+        questionField.text =
+            StringBuilder().append("$numberOne").append(" * ").append("$numberTwo").toString()
 
 
         correctButton = numGenerator.nextInt().mod(3)//random Button = correct
@@ -84,14 +82,14 @@ class MultiplicationActivity : AppCompatActivity() {
         buttonArray[(correctButton.plus(1).mod(3))].text =
             (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel - 1).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         buttonArray[(correctButton.plus(2).mod(3))].text =
             (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel - 1).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
 
         while (buttonSolutionOne.text.equals(buttonSolutionTwo.text) || buttonSolutionOne.text.equals(
@@ -100,13 +98,13 @@ class MultiplicationActivity : AppCompatActivity() {
         ) {
             buttonArray[(correctButton.plus(1)).mod(3)].text = (numberOne.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel - 1).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
             buttonArray[(correctButton.plus(2)).mod(3)].text = (numberTwo.times(
                 numGenerator.nextInt(
-                    10f.pow(difficultyLevel - 1).roundToInt()
-                )
+                    10f.pow(difficultyLevel).roundToInt()-1
+                )+1
             )).toString()
         }
     }
